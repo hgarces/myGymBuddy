@@ -20,7 +20,7 @@ public class CongratsActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CongratsActivity.this,DrawerActivity.class);
+                Intent intent = new Intent(CongratsActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

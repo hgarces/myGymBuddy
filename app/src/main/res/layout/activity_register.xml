@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.android.ipm.mygymbuddy.RegisterActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        ></include>
 
     <Button
         android:layout_width="wrap_content"
@@ -43,7 +43,9 @@
         android:id="@+id/register_password_editText"
         android:layout_below="@+id/register_email_editText"
         android:layout_centerHorizontal="true"
-        android:hint="Palavra-Passe"/>
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:ems="10"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,6 +78,5 @@
         android:id="@+id/checkBox"
         android:layout_below="@+id/scrollView"
         android:layout_alignStart="@+id/scrollView"/>
-
 
 </RelativeLayout>
