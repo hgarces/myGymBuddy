@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyGymBuddy.iml" filepath="$PROJECT_DIR$/MyGymBuddy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/butterknife-7.0.1/butterknife-7.0.1.iml" filepath="$PROJECT_DIR$/butterknife-7.0.1/butterknife-7.0.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/extendedCalendarView/extendedCalendarView.iml" filepath="$PROJECT_DIR$/extendedCalendarView/extendedCalendarView.iml" />
     </modules>
   </component>
 </project>

@@ -28,24 +28,34 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/register_cancel_button"/>
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/emailWrapper"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/register_email_editText"
-        android:hint="Email"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"/>
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_email_editText"
+            android:hint="Email"
+            android:layout_marginTop="53dp" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/passwordWrapper"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/register_password_editText"
-        android:layout_below="@+id/register_email_editText"
-        android:layout_centerHorizontal="true"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:ems="10"/>
+        android:layout_below="@+id/emailWrapper"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_password_editText"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,24 +63,22 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Termos e Condições"
         android:id="@+id/register_terms_and_conditions_textView"
-        android:layout_below="@+id/register_password_editText"
-        android:layout_alignStart="@+id/register_password_editText"/>
-
+        android:layout_below="@+id/passwordWrapper"
+        android:layout_alignStart="@+id/passwordWrapper"/>
     <ScrollView
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:id="@+id/scrollView"
         android:layout_below="@+id/register_terms_and_conditions_textView"
         android:layout_centerHorizontal="true">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Xaxo inventado"
-            android:id="@+id/register_terms_and_conditions_text"/>
+            android:text="@string/terms"
+            android:id="@+id/register_terms_and_conditions_text"
+            />
     </ScrollView>
-
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,5 +86,4 @@
         android:id="@+id/checkBox"
         android:layout_below="@+id/scrollView"
         android:layout_alignStart="@+id/scrollView"/>
-
 </RelativeLayout>

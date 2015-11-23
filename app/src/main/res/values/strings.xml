@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MyGymBuddy</string>
     <string name="title_activity_drawer">DrawerActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
 
@@ -10,5 +10,19 @@
         <item>Nutrição</item>
         <item>Settings</item>
     </string-array>
+
+    <string-array name="exercises_list">
+        <item>Abdominais</item>
+        <item>Agachamentos</item>
+        <item>Flexoes</item>
+    </string-array>
+
+    <string name="terms">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Aenean commodo ligula eget dolor. Aenean massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+        Integer tincidunt.</string>
 </resources>
 

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/nav_items_main"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/workouts"
+            android:id="@+id/nav_home"
+            android:checked="false"
+            android:title="Home"
+            android:icon="@drawable/ic_star_rate_black_18dp"/>
+        <item
+            android:id="@+id/nav_exercises"
             android:checked="false"
             android:title="Treino"
             android:icon="@drawable/ic_star_rate_black_18dp" />
@@ -11,6 +17,15 @@
             android:checked="false"
             android:title="Nutricao"
             android:icon="@drawable/ic_tag_faces_black_24dp"/>
+        <item
+            android:id="@+id/nav_statistics"
+            android:checked="false"
+            android:title="Estatisticas"
+            android:icon="@drawable/ic_tag_faces_black_24dp"/>
+    </group>
+
+    <group android:id="@+id/nav_items_extra"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/action_settings"
             android:checked="false"
