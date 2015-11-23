@@ -1,4 +1,4 @@
-package com.android.ipm.mygymbuddy;
+package com.android.ipm.mygymbuddy.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.android.ipm.mygymbuddy.ExercisesActivity;
+import com.android.ipm.mygymbuddy.HidratationActivity;
+import com.android.ipm.mygymbuddy.R;
+import com.android.ipm.mygymbuddy.RunningActivity;
 
 public class NewActivityFragment extends Fragment implements View.OnClickListener{
 

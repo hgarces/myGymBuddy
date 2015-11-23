@@ -1,17 +1,17 @@
-package com.android.ipm.mygymbuddy;
+package com.android.ipm.mygymbuddy.fragments;
 
 import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.android.ipm.mygymbuddy.util.MGBUtils;
+import com.android.ipm.mygymbuddy.R;
 import com.tyczj.extendedcalendarview.CalendarProvider;
 import com.tyczj.extendedcalendarview.Event;
 import com.tyczj.extendedcalendarview.ExtendedCalendarView;

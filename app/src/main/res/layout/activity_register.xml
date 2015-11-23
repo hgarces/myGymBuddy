@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.android.ipm.mygymbuddy.RegisterActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        ></include>
 
     <Button
         android:layout_width="wrap_content"
@@ -32,13 +28,14 @@
         android:id="@+id/emailWrapper"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/register_email_editText"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:layout_marginTop="53dp" />
     </android.support.design.widget.TextInputLayout>
 
@@ -64,7 +61,8 @@
         android:text="Termos e Condições"
         android:id="@+id/register_terms_and_conditions_textView"
         android:layout_below="@+id/passwordWrapper"
-        android:layout_alignStart="@+id/passwordWrapper"/>
+        android:layout_alignStart="@+id/passwordWrapper"
+        android:layout_marginTop="16dp"/>
     <ScrollView
         android:layout_width="250dp"
         android:layout_height="200dp"

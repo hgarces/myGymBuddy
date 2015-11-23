@@ -13,7 +13,6 @@ import com.android.ipm.mygymbuddy.content.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
     Button cancelButton;
     Button createAccButton;
     EditText email;
@@ -23,9 +22,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
 
         cancelButton = (Button) findViewById(R.id.register_cancel_button);
         createAccButton = (Button) findViewById(R.id.register_create_acc_button);

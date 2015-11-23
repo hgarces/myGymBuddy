@@ -1,5 +1,8 @@
 package com.android.ipm.mygymbuddy;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -8,6 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.android.ipm.mygymbuddy.fragments.HomeFragment;
+import com.android.ipm.mygymbuddy.fragments.NewActivityFragment;
+import com.android.ipm.mygymbuddy.fragments.NutritionFragment;
+import com.android.ipm.mygymbuddy.fragments.SettingsFragment;
+import com.android.ipm.mygymbuddy.fragments.StatisticsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // adiciona fragment no ecra inicial
-        HomeFragment fragment = new HomeFragment();
-        fragment.setArguments(getIntent().getExtras());
-        getSupportFragmentManager().beginTransaction()
-        .add(R.id.fragment_container, fragment).commit();
+        // adiciona fragment com o ecra inicial (calendario)
+        loadFragment(R.id.nav_home);
 
         // inicializa Drawer Layout e ActionBarDrawerToggle
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -62,29 +68,37 @@ public class MainActivity extends AppCompatActivity {
                 if (menuItem.isChecked()) menuItem.setChecked(false);
                 else menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
-
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_home:
-                        HomeFragment fragment = new HomeFragment();
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, fragment).commit();
-                        break;
-                    case R.id.nav_exercises:
-                        NewActivityFragment naf = new NewActivityFragment();
-                        getFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, naf);
-                        break;
-                    case R.id.nav_nutrition:
-
-                        break;
-                    case R.id.action_settings:
-
-                        break;
-                }
+                loadFragment(menuItem.getItemId());
                 return true;
             }
         });
         //mDrawerLayout.openDrawer(Gravity.LEFT);
+    }
+
+    private void loadFragment(int menuItemId) {
+        Fragment fragment = null;
+
+        switch (menuItemId) {
+            default:
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+                break;
+            case R.id.nav_exercises:
+                fragment = new NewActivityFragment();
+                break;
+            case R.id.nav_nutrition:
+                fragment = new NutritionFragment();
+                break;
+            case R.id.nav_statistics:
+                fragment = new StatisticsFragment();
+                break;
+            case R.id.action_settings:
+                fragment = new SettingsFragment();
+                break;
+        }
+
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment).commit();
     }
 
 }
