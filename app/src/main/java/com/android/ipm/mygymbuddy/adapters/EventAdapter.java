@@ -1,49 +1,59 @@
 package com.android.ipm.mygymbuddy.adapters;
 
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.android.ipm.mygymbuddy.R;
 import com.tyczj.extendedcalendarview.Event;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<Event> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder> {
 
-    Context mContext;
-    private int layoutResource;
+    private List<Event> mEventsList;
 
-    public EventAdapter(Context context, int resource, ArrayList<Event> objects) {
-        super(context, resource, objects);
-        mContext = context;
-        layoutResource = resource;
+    public EventAdapter(List<Event> e) {
+        mEventsList = e;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
+    public EventHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View itemView = LayoutInflater.from(viewGroup.getContext()).
+                inflate(R.layout.list_item_event, viewGroup, false);
+        return new EventHolder(itemView);
+    }
 
-        if (view == null) {
-            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-            view = layoutInflater.inflate(R.layout.item_list, null);
+    @Override
+    public void onBindViewHolder(EventHolder holder, int position) {
+        Event event = mEventsList.get(position);
+        holder.title.setText(String.valueOf(event.getTitle()));
+        holder.descr.setText(String.valueOf(event.getDescription()));
+        holder.date.setText(String.valueOf(event.getStartDate("hh:mm") + " - " + event.getEndDate("hh:mm")));
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mEventsList.size();
+    }
+
+    public final static class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        TextView title, descr, date;
+
+        public EventHolder(View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+            title = (TextView) itemView.findViewById(R.id.event_title);
+            descr = (TextView) itemView.findViewById(R.id.event_descr);
+            date = (TextView) itemView.findViewById(R.id.event_time);
         }
-        Event e = getItem(position);
 
-        if(e != null) {
-            TextView title = (TextView) view.findViewById(R.id.event_title);
-            TextView descr = (TextView) view.findViewById(R.id.event_descr);
-            TextView date = (TextView) view.findViewById(R.id.event_time);
+        @Override
+        public void onClick(View v) {
 
-            if(title != null) title.setText(e.getTitle());
-            if(descr != null) descr.setText(e.getDescription());
-            if(date != null) date.setText(e.getStartDate("hh:mm") + " - "+ e.getEndDate("hh:mm"));
         }
-        return view;
     }
 }

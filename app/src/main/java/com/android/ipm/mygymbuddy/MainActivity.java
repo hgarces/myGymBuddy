@@ -12,7 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.android.ipm.mygymbuddy.content.User;
 import com.android.ipm.mygymbuddy.fragments.HomeFragment;
 import com.android.ipm.mygymbuddy.fragments.NewActivityFragment;
 import com.android.ipm.mygymbuddy.fragments.NutritionFragment;
@@ -21,6 +23,7 @@ import com.android.ipm.mygymbuddy.fragments.StatisticsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private User mUser;
     private Toolbar mToolbar;
     private NavigationView mNavigationView;
     private DrawerLayout mDrawerLayout;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        mUser = (User) getIntent().getSerializableExtra(User.EXTRA);
         // inicializa a toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -74,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        if(mUser != null) {
+            View header = mNavigationView.getHeaderView(0);
+            TextView name = (TextView) header.findViewById(R.id.nav_header_username);
+            TextView email = (TextView) header.findViewById(R.id.nav_header_email);
+            name.setText(mUser.getNome());
+            email.setText(mUser.getEmail());
+        }
         mDrawerLayout.openDrawer(Gravity.LEFT);
     }
 

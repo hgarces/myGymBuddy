@@ -33,4 +33,5 @@
         android:layout_alignBottom="@+id/event_title"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="16dp" />
+
 </RelativeLayout>

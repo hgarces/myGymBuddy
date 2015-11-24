@@ -20,7 +20,7 @@
         android:layout_height="76dp"/>
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/nav_header_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="jon.doe@gmail.com"
-        android:id="@+id/email"
+        android:id="@+id/nav_header_email"
         android:textColor="@color/textColor"/>
 
 </LinearLayout>
