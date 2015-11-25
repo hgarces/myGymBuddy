@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
             TextView email = (TextView) header.findViewById(R.id.nav_header_email);
             name.setText(mUser.getNome());
             email.setText(mUser.getEmail());
+            mDrawerLayout.openDrawer(Gravity.LEFT);
         }
-        mDrawerLayout.openDrawer(Gravity.LEFT);
     }
 
     private void loadFragment(int menuItemId) {

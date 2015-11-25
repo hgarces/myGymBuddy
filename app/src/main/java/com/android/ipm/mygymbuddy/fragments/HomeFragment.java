@@ -1,10 +1,13 @@
 package com.android.ipm.mygymbuddy.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +31,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.app_name);
         calendar = (ExtendedCalendarView) rootView.findViewById(R.id.calendar);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.events_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -39,19 +42,39 @@ public class HomeFragment extends Fragment {
     }
 
     private void initEventListeners() {
+
         calendar.setOnDayClickListener(new ExtendedCalendarView.OnDayClickListener() {
+            int i = 0;
+
             @Override
             public void onDayClicked(AdapterView<?> adapter, View view, int position, long id, Day day) {
 
                 getScheduleDetails(day);
                 recyclerView.setAdapter(new EventAdapter(itemsList));
+                i++;
+                Handler handler = new Handler();
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        i = 0;
+                    }
+                };
+                if(i == 1) {
+                    handler.postDelayed(r, 350);
+                }
+                else if(i == 2) {
+                    Fragment fragment = new NewActivityFragment();
+                    getActivity().getFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, fragment, null).addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
         newActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewActivityFragment fragment = new NewActivityFragment();
+                Fragment fragment = new NewActivityFragment();
                 getActivity().getFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, fragment, null).addToBackStack(null)
                         .commit();
@@ -68,4 +91,5 @@ public class HomeFragment extends Fragment {
             itemsList.add(e);
         }
     }
+
 }

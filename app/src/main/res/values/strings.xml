@@ -5,10 +5,19 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
+    <string name="home">Home</string>
+    <string name="add_exercises">Adicionar Exercicio</string>
+    <string name="hidratation">Hidratação</string>
+    <string name="new_exercise">Novo Exercicio</string>
+    <string name="running">Corrida</string>
+    <string name="nutrition">Nutrição</string>
+    <string name="statistics">Estatisticas</string>
+    <string name="meals">Refeições</string>
+
 
     <string-array name="navigation_drawer_items_array">
-        <item>Nutrição</item>
-        <item>Settings</item>
+        <item>@string/home</item>
+        <item>@string/action_settings</item>
     </string-array>
 
     <string-array name="exercises_list">

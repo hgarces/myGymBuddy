@@ -64,6 +64,7 @@ public class ExercisesActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.add_exercises);
 
         mTitleText = (EditText) findViewById(R.id.exercise_title);
         mDescText = (EditText) findViewById(R.id.exercise_desc);
