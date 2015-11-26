@@ -13,7 +13,12 @@
     <string name="nutrition">Nutrição</string>
     <string name="statistics">Estatisticas</string>
     <string name="meals">Refeições</string>
-
+    <string name="breakfast">Pequeno Almoço</string>
+    <string name="morning_meal">Lanche da Manhã</string>
+    <string name="lunch">Almoço</string>
+    <string name="afternoon_meal">Lanche da Tarde</string>
+    <string name="dinner">Jantar</string>
+    <string name="night_meal">Ceia</string>
 
     <string-array name="navigation_drawer_items_array">
         <item>@string/home</item>

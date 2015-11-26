@@ -89,12 +89,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadFragment(int menuItemId) {
-        Fragment fragment = null;
-
+        Fragment fragment;
+        String fragTag = "home";
         switch (menuItemId) {
             default:
             case R.id.nav_home:
                 fragment = new HomeFragment();
+                fragTag = null;
                 break;
             case R.id.nav_exercises:
                 fragment = new NewActivityFragment();
@@ -111,7 +112,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         getFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment).commit();
+                .replace(R.id.fragment_container, fragment).addToBackStack(fragTag).commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        getFragmentManager().popBackStack();
     }
 
 }
